@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bengaluru Transit Analytics</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></head>
+<body><header><div><div class="eyebrow">BIG DATA • HADOOP MAPREDUCE</div><h1>Bengaluru Transit Analytics</h1><p>Public transportation demand and operational insights</p></div><a class="export" href="/api/export/routes.csv">Export route CSV ↓</a></header>
+<main><div class="notice" id="data-note">Loading dataset information…</div>
+<section class="kpis" id="kpis"></section>
+<section class="grid two"><article class="panel"><div class="panel-head"><div><h2>Passenger boardings by route</h2><p>Aggregated by MapReduce</p></div></div><canvas id="routeChart"></canvas></article>
+<article class="panel"><div class="panel-head"><div><h2>Hourly demand</h2><p>Boardings by hour of day</p></div></div><canvas id="hourChart"></canvas></article></section>
+<section class="grid two"><article class="panel"><div class="panel-head"><div><h2>Stop activity map</h2><p>Illustrative stop coordinates</p></div></div><div id="map"></div></article>
+<article class="panel"><div class="panel-head"><div><h2>Delay distribution</h2><p>Observation count by delay band</p></div></div><canvas id="delayChart"></canvas><div class="small-note">Delay values in this demo are simulated.</div></article></section>
+<section class="panel"><div class="panel-head"><div><h2>Route performance table</h2><p>Sorted by passenger boardings</p></div></div><div class="table-wrap"><table><thead><tr><th>Route</th><th>Passenger boardings</th><th>Observations</th><th>Average delay</th></tr></thead><tbody id="routeRows"></tbody></table></div></section>
+<footer>Academic demonstration • Synthetic sample data • Not an official BMTC live dashboard</footer></main>
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script></body></html>
